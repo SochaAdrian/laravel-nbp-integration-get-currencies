@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/nbp/healtCheck', [App\Http\Controllers\NBPController::class, 'healthCheck'])->name('npb.healthcheck');
+Route::get('/nbp/getCurrenciesFromApi', [App\Http\Controllers\NBPController::class, 'getCurrenciesFromApi'])->name('npb.getCurrenciesFromApi');
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
