@@ -58,12 +58,20 @@ Then you need to change .env variables according to readme and run
 
 ```bash
 docker compose up
-
 ```
 To create containers containing NGINX to serve application, MYSQL for database and php-fpm
 
+Then in php-fpm container you need to run migraton by:
+```bash
+php artisan migrate:fresh
+```
 
-
+To run crone task you need to run: (in php-fpm container) - runs every minute
+```bash
+composer dump-autoload
+php artisan schedule:clear-cache
+php artisan schedule:work
+```
 
 ## Authors
 
